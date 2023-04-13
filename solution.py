@@ -4,10 +4,16 @@ from scipy import stats
 from scipy.stats import anderson_ksamp
 
 chat_id = 298754188 # Ваш chat ID, не меняйте название переменной
+# 13/04/23 12:30
 def solution(x: np.array, y: np.array) -> bool:
-    alpha = 0.01
-    res = anderson_ksamp([x, y])
-    return res.pvalue < alpha # Ваш ответ, True или False
+    res = stats.cramervonmises_2samp(x, y)
+    return res.pvalue < 0.01
+
+
+# def solution(x: np.array, y: np.array) -> bool:
+#     alpha = 0.01
+#     res = anderson_ksamp([x, y])
+#     return res.pvalue < alpha # Ваш ответ, True или False
 
 # def solution(x: np.array, y: np.array) -> bool:
 #     p_value = anderson_ksamp([x, y]).pvalue 
