@@ -4,11 +4,15 @@ from scipy import stats
 from scipy.stats import anderson_ksamp
 
 chat_id = 298754188 # Ваш chat ID, не меняйте название переменной
-
 def solution(x: np.array, y: np.array) -> bool:
-    p_value = anderson_ksamp([x, y]).pvalue 
-    alpha =  0.01
-    return p_value < alpha # Ваш ответ, True или False
+    alpha = 0.01
+    res = anderson_ksamp([x, y])
+    return res.pvalue < alpha # Ваш ответ, True или False
+
+# def solution(x: np.array, y: np.array) -> bool:
+#     p_value = anderson_ksamp([x, y]).pvalue 
+#     alpha =  0.01
+#     return p_value < alpha # Ваш ответ, True или False
 
 
 # import pandas as pd
